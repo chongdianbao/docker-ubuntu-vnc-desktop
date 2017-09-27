@@ -14,14 +14,14 @@ RUN apt-get update \
     && add-apt-repository ppa:jonathonf/firefox-esr \
     && apt-get update \
     && apt-get install -y --no-install-recommends --allow-unauthenticated \
-        supervisor \
+        supervisor cron \
         openssh-server pwgen sudo vim-tiny \
         net-tools \
         lxde x11vnc xvfb \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         firefox-esr browser-plugin-freshplayer-pepperflash \
         fonts-wqy-microhei \
-        language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant \
+        language-pack-zh-hant language-pack-gnome-zh-hant \
         nginx \
         python-pip python-dev build-essential \
         mesa-utils libgl1-mesa-dri \
@@ -33,7 +33,7 @@ RUN apt-get update \
 
 
 # tini for subreap                                   
-ENV TINI_VERSION v0.16.1
+ENV TINI_VERSION v0.9.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /bin/tini
 RUN chmod +x /bin/tini
 
